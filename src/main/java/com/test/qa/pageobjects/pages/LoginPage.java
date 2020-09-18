@@ -10,4 +10,35 @@ import com.test.qa.pageobjects.utils.PageBase;
  * on 10/3/2018.
  */
 public class LoginPage extends PageBase {
+    private static final Logger LOGGER = Logger.getLogger(LoginPage.class);
+
+    private static By textUsername = By.id("username");
+    private static By textPassword = By.id("password");
+    private static By btnSubmit = By.xpath("//button[@type='submit']");
+    private static By hdrLoginPage = By.xpath("//h2");
+    private static By alertMessage = By.id("flash");
+
+    public static boolean isLoginPageDisplayed(){
+        return getDriver().findElement(hdrLoginPage).isDisplayed();
+    }
+
+    public static void setUsernamePassword(String username,String password){
+        getDriver().findElement(textUsername).sendKeys(username);
+        getDriver().findElement(textPassword).sendKeys((password));
+
+    }
+
+    public static void clickSubmit(){
+
+        getDriver().findElement(btnSubmit).click();
+    }
+
+    public static boolean isAlertDisplayed(){
+        return getDriver().findElement(alertMessage).isDisplayed();
+    }
+
+    public static String getAlertContent(){
+        waiTillVisible(alertMessage,30);
+        return  getDriver().findElement(alertMessage).getText();
+    }
 }
