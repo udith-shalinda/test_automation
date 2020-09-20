@@ -22,13 +22,13 @@ public class LoginPage extends PageBase {
         return getDriver().findElement(hdrLoginPage).isDisplayed();
     }
 
-    public static void setUsernamePassword(String username,String password){
+    public static void setUsernameAndPassword(String username,String password){
         getDriver().findElement(textUsername).sendKeys(username);
         getDriver().findElement(textPassword).sendKeys((password));
 
     }
 
-    public static void clickSubmit(){
+    public static void clickSubmitButton(){
 
         getDriver().findElement(btnSubmit).click();
     }

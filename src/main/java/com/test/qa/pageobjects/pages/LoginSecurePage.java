@@ -33,7 +33,7 @@ public class LoginSecurePage extends PageBase {
 
     }
 
-    public static void clickLogout(){
+    public static void clickLogoutButton(){
         getDriver().findElement(buttonLogout).click();
     }
 }
